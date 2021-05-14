@@ -1,14 +1,81 @@
 const scribble = require('scribbletune');
-const { Note, Scale } = require("@tonaljs/tonal");
-const { Z_BINARY } = require('node:zlib');
+// const { Note, Scale } = require("@tonaljs/tonal");
+// const { Z_BINARY } = require('node:zlib');
 // import { Note, Scale } from "@tonaljs/tonal";
 // import { transpose } from "@tonaljs/note";
 // import { chord, clip } from 'scribbletune';
 
+
+// ***************************************** VARIATION OF LOGS for CONSOLE **********************
+
+// console.log('Console Log')
+// console.info('Console Info')
+// console.debug('Console Debug')
+// console.warn('Console Warn')
+// console.error('Console Error')
+// console.assert
+// console.count
+// console.countReset
+// console.group
+// console.table
+
+// **************************************** LIST OF SCALES AND CHORDS **************************
+// const allScales = scribble.scales(); // returns an array of all the available scales from tonal
+// console.log(allScales)
+
+// // Get a list of all the available chords
+// const allChords = scribble.chords(); // Returns an array of all the available chords
+
+// console.group()
+// console.info(allChords)
+// console.groupEnd()
+
+// ****************************************** ASCII CODE **********************************
 // think of "x" as quarter note and "-" (aka HYPHEN or Minus) as quarter rest
 // LETTER ASCII-CODE BINARY
 // x	   120	       01111000
 // -      45
+
+
+
+// ******************************** WORD MIXED TO MIX UP CHORDS AND MELODIES **************
+// THIS IS WORD MIXER!! ORIGINAL CODE -- same code below but edited
+// let tracery = require('tracery-grammar');
+ 
+// let grammar = tracery.createGrammar({
+//   'animal': ['panda','fox','capybara','iguana'],
+//   'emotion': ['sad','happy','angry','jealous'],
+//   'origin':['I am #emotion.a# #animal#.'],
+// });
+ 
+// grammar.addModifiers(tracery.baseEngModifiers); 
+ 
+// console.log(grammar.flatten('#origin#'));
+
+
+
+// RANDOMIZER --- EDITED CODE TO WORK FOR RANDOMIZATION
+// let tracery = require('tracery-grammar');
+ 
+// let grammar = tracery.createGrammar({
+//   'chords': ['panda','fox','capybara','iguana'],
+//   'emotion': ['sad','happy','angry','jealous'],
+//   'origin':['I am #emotion.a# #animal#.'],
+// });
+ 
+// grammar.addModifiers(tracery.baseEngModifiers); 
+ 
+// console.log(grammar.flatten('#origin#'));
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -72,11 +139,6 @@ const { Z_BINARY } = require('node:zlib');
 // scribble.midi(clip, 'c-min.mid'); // Export this clip as a MIDI file
 
 
-
-
-// const allScales = scribble.scales(); // returns an array of all the available scales from tonal
-// console.log(allScales)
-
 // ********************************* CHORDS ***************************
 
 // THIS WORKS WELL!
@@ -102,8 +164,9 @@ const { Z_BINARY } = require('node:zlib');
 
 
 // USING A 7th -- DOMINTANT 7th!
+let userNotes = prompt('give 4 chords: ')
 const cMajorChord = scribble.clip({
-    notes: 'Dm7 G7th CM7 CM7',
+    notes: userNotes,
     pattern: 'x-'.repeat(4) // gets all 4 chords
 })
 scribble.midi(cMajorChord, 'test.mid')
