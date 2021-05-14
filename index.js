@@ -24,7 +24,7 @@ const scribble = require('scribbletune');
 //   pattern: 'x'.repeat(32)
 // });
 
-// scribble.midi(c, 'arp.mid');
+// scribble.midi(c, 'arppegio.mid');
 
 
 
@@ -36,13 +36,26 @@ const scribble = require('scribbletune');
 // });
 
 // *** Render a MIDI file of this clip
-// scribble.midi(clip, 'c.mid');
+// scribble.midi(clip, 'c-major-scale.mid');
+
+
+
+// TOP CODE HERE WORKS TOO!!!
+// a diff way to write the "pattern"
+
+// const clip = scribble.clip({
+//     notes: scribble.scale('C4 major'),
+//     pattern: 'x'.repeat(7) + '_'
+// });
+
+// scribble.midi(clip, 'c-major.mid');
+
 
 
 // ********************************* CHORDS ***************************
 
 let chords = scribble.clip({
-    notes: ['F#min', 'C#min', 'Dmaj', 'Bmin', 'Emaj', 'Amaj', 'Dmaj', 'C#min', 'Amaj'],
+    notes: ['F#m', 'C#m', 'DM', 'Bm', 'EM', 'AM', 'DM', 'C#m', 'AM'],
     pattern: 'x_x_x_--'.repeat(8),
     sizzle: true
 })
