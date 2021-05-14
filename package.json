@@ -9,7 +9,12 @@
   "author": "Sergio Elisondo",
   "license": "ISC",
   "dependencies": {
+    "@tonaljs/note": "^4.6.0",
+    "@tonaljs/tonal": "^4.6.0",
     "scribbletune": "^3.15.1",
     "tracery-grammar": "^2.7.4"
+  },
+  "devDependencies": {
+    "webpack": "^5.37.0"
   }
 }
