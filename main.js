@@ -63,7 +63,7 @@ let grammar = tracery.createGrammar({
     'happyDefinition': ['Maj7'],
     'dominantDefinition': ['7th'],
     'tritoneDefinition': ['7th'],
-    'dimishedDefinition': ['o7'],
+    'dimishedDefinition': ['o7-3'], // this puts it into a third octave range -- DO NOT put it on chord letters below!!
     
     
     'sadNote': ['A', 'E', 'D'],
@@ -128,10 +128,10 @@ console.log('rhythmList:', rhythms);
 // PUTTING IT ALL TOGETHER
 let chords = scribble.clip({
     notes: chordList,
-    // pattern: 'x_x_x___'.repeat(8)
+    pattern: 'x_x_x___'.repeat(8)
 
     // -------------------------  THIS WILL MAKE THE RHYTHM RANDOM!!! -------------------
-    pattern: rhythms.join('')
+    // pattern: rhythms.join('')
 })
 scribble.midi(chords, 'random-chords.mid')
 
