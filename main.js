@@ -74,14 +74,15 @@ let grammar = tracery.createGrammar({
     
 
     'chordType': ['#sadNote##sadDefinition#', '#happyNote##happyDefinition#', '#dominantNote##dominantDefinition#','#tritoneNote##tritoneDefinition#', '#diminishedNote##dimishedDefinition#'],
-    'chord': ['#chordType#'],
+    'text': ['#chordType#'],
     // 'origin':['#note##chord#'],
     // 'chords': 
 });
  
 
+// --------------------- THIS IS FOR RANDOMIZING CHORDS -------------------------
 let getRandomChord = function(grammar){
-        return (grammar.flatten('#chord#'));
+        return (grammar.flatten('#text#'));
 }
 
 let getChords = function(grammar, chordCount){
@@ -94,20 +95,45 @@ let getChords = function(grammar, chordCount){
     return chords
 }
 
+// --------------------------- RANDOMIZE RHYTHM ------------------------
+
+
+
+let rhythmGrammar = tracery.createGrammar({
+  'groove': ['x__x__x-','x--x__x-','x--x--x_'],
+  'text':['#groove#'],
+});
+
+let getRandomText = function(grammar) {
+  return grammar.flatten('#text#');
+}
+
+let getText = function(grammar, textCount) {
+  let textItems = [];
+  for(let i = 0; i < textCount; i++) {
+    let text = getRandomText(grammar);
+    textItems.push(text);
+  }
+  return textItems;
+}
+
+// GRABBIN CHORDS
 let chordList = getChords(grammar, 8)
 console.log('chordList:', chordList)
+
+// GRABBING RYHTHM
+let rhythms = getText(rhythmGrammar, 8);
+console.log('rhythmList:', rhythms);
+
+// PUTTING IT ALL TOGETHER
 let chords = scribble.clip({
     notes: chordList,
-    pattern: 'x_x_x___'.repeat(8)
+    // pattern: 'x_x_x___'.repeat(8)
+
+    // -------------------------  THIS WILL MAKE THE RHYTHM RANDOM!!! -------------------
+    pattern: rhythms.join('')
 })
 scribble.midi(chords, 'random-chords.mid')
-
-
-
-
-
-
-
 
 
 
