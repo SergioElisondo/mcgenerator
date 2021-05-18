@@ -11,8 +11,10 @@
   "dependencies": {
     "@tonaljs/note": "^4.6.0",
     "@tonaljs/tonal": "^4.6.0",
+    "lodash": "^4.17.21",
     "scribbletune": "^3.15.1",
-    "tracery-grammar": "^2.7.4"
+    "tracery-grammar": "^2.7.4",
+    "underscore": "^1.13.1"
   },
   "devDependencies": {
     "webpack": "^5.37.0"

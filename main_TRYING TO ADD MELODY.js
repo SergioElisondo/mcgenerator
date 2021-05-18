@@ -36,6 +36,9 @@ const scribble = require('scribbletune');
 // -      45
 
 
+// ****************************************** 8th note *************************************
+
+//subdiv: '8n', // the default it a quarter note
 
 // ******************************** WORD MIXED TO MIX UP CHORDS AND MELODIES **************
 // THIS IS THE WORD MIXER!! ORIGINAL CODE -- same code below but edited
@@ -83,6 +86,7 @@ let grammar = tracery.createGrammar({
 });
  
 
+
 // RHYTHM MAKER 
 let rhythmGrammar = tracery.createGrammar({
   'groove': ['x__x__x-','x--x__x-','x--x--x_','x-x__x_-'],
@@ -91,9 +95,11 @@ let rhythmGrammar = tracery.createGrammar({
 
 
 // MELODY MAKER
-// let rhythmGrammar = tracery.createGrammar({
-//   'groove': ['x__x__x-','x--x__x-','x--x--x_','x-x__x_-'],
-//   'text_1':['#groove#'],
+// let melodyGrammar = tracery.createGrammar({
+//   'groove': '[xR][Rx]'.repeat(8),
+//   'theGroove':['#groove#'],
+//   'notes': ['C4', 'E4', 'F4', 'G4', 'A4', 'C5', 'E5'],
+//   'groovePlusNotes' : ['#theGroove##notes#']
 // });
 
 // --------------------- THIS IS FOR RANDOMIZING CHORDS -------------------------
@@ -112,10 +118,6 @@ let getChords = function(grammar, chordCount){
 }
 
 // --------------------------- RANDOMIZE RHYTHM ------------------------
-
-
-
-
 let getRandomText = function(grammar) {
   return grammar.flatten('#text_1#');
 }
@@ -129,6 +131,24 @@ let getText = function(grammar, textCount) {
   return textItems;
 }
 
+// WORKING HERE
+// ------------------------------ RANDOMIZE MELODY -----------------------
+
+// let getRandomMelody = function(grammar){
+//         return (grammar.flatten('#groovePlusNotes#'));
+// }
+
+// let getMelody = function(grammar, melodyCount){
+//     let mainMelody = []
+//     for(let i = 0; i < melodyCount; i++){
+//         let melody = getRandomMelody(grammar)
+//         console.log('pushing' + melody)
+//         mainMelody.push(melody)
+//     }
+//     return mainMelody
+// }
+
+
 // GRABBIN CHORDS
 let chordList = getChords(grammar, 8)
 console.log('chordList:', chordList)
@@ -137,66 +157,44 @@ console.log('chordList:', chordList)
 let rhythms = getText(rhythmGrammar, 8);
 console.log('rhythmList:', rhythms);
 
-// PUTTING CHORDS + RYHTHM TOGETHER
+
+
+// PUTTING IT ALL TOGETHER
 let chords = scribble.clip({
     notes: chordList,
+    
+    // THIS BELOW KEEPS CHORDS NORMAL, WITH LAST 1/4 note tied to 3rd beat
     // pattern: 'x_x_x___'.repeat(8)
 
     // -------------------------  THIS WILL MAKE THE RHYTHM RANDOM!!! -------------------
     pattern: rhythms.join('')
 })
 
-// THIS OUTPUTS CHORDS ONLY
-  // scribble.midi(chords, 'chords.mid');
+
+// let allMelody = scribble.clip({
+//     notes: melody,
+// })
+
+
+scribble.midi(chords, 'random-chords.mid')
+
+
 
 
 // ************************************* MAIN melody ******************* 
-  const clips = ['1032', '2032', '4021', '3052'].map(order =>
-    scribble.clip({
-      pattern: '[xx][xR]'.repeat(8),
-      notes: scribble.arp({
-        // chords: 'Dm BbM FM CM BbM Am FM Gm', //original sounds awesome!
-        chords: 'CM Am Em DM GM Am FM GM',
-        count: 8,
-        order,
-      }),
-      accent: 'x-xx--xx', // think of "x" as quarter note and "-" as quarter rest
-    })
-  );
-
-  let melodyNotes = [].concat(...clips)
-  // THIS OUTPUTS MELODY ONLY
-  // scribble.midi(melodyNotes, 'melody.mid');
-
-  
-
-  // THIS PLAYS BUT NO SOUND!
-// let newArray = [...chords, ...melodyNotes]
-// let all = Object.assign(newArray.join(''))
-// scribble.midi(all, 'random-chords.mid')
-
-// THIS PLAYS BUT THEY ARE IN LINE
-// let newArray = [...chords, ...melodyNotes]
-// scribble.midi(newArray, 'random-chords.mid')
-
-// THIS PLAYS BUT THEY ARE IN LINE
-// scribble.midi(chords.concat(melodyNotes),'random-chords.mid')
-
-// THIS PLAYS BUT THEY ARE IN LINE
-// Array.prototype.unique = function() {
-//     var a = this.concat();
-//     for(var i=0; i<a.length; ++i) {
-//         for(var j=i+1; j<a.length; ++j) {
-//             if(a[i] === a[j])
-//                 a.splice(j--, 1);
-//         }
-//     }
-
-//     return a;
-// };
-// var array3 = chords.concat(melodyNotes).unique(); 
-// scribble.midi(array3,'random-chords.mid')
-
+  // const clips = ['1032', '2032', '4021', '3052'].map(order =>
+  //   scribble.clip({
+  //     pattern: '[xx][xR]'.repeat(8),
+  //     notes: scribble.arp({
+  //       // melodyNotes: 'Dm BbM FM CM BbM Am FM Gm', //original sounds awesome!
+  //       melodyNotes: 'CM Am Em DM GM Am FM GM',
+  //       count: 8,
+  //       order,
+  //     }),
+  //     accent: 'x-xx--xx', // think of "x" as quarter note and "-" as quarter rest
+  //   })
+  // );
+  // scribble.midi([].concat(...clips), 'melody.mid');
 
 
 // ***************************** Arpeggio **********************
