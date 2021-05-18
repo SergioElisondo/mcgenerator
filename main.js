@@ -147,7 +147,7 @@ let chords = scribble.clip({
 })
 
 // THIS OUTPUTS CHORDS ONLY
-  // scribble.midi(chords, 'chords.mid');
+  scribble.midi(chords, 'chords.mid');
 
 
 // ************************************* MAIN melody ******************* 
@@ -166,7 +166,7 @@ let chords = scribble.clip({
 
   let melodyNotes = [].concat(...clips)
   // THIS OUTPUTS MELODY ONLY
-  // scribble.midi(melodyNotes, 'melody.mid');
+  scribble.midi(melodyNotes, 'melody.mid');
 
   
 
