@@ -83,7 +83,7 @@ let grammar = tracery.createGrammar({
 });
  
 
-// RHYTHM MAKER 
+// RHYTHM MAKER
 let rhythmGrammar = tracery.createGrammar({
   'groove': ['x__x__x-','x--x__x-','x--x--x_','x-x__x_-'],
   'text_1':['#groove#'],
@@ -146,7 +146,7 @@ let chords = scribble.clip({
     pattern: rhythms.join('')
 })
 
-// THIS OUTPUTS CHORDS ONLY
+// THIS OUTPUTS CHORDS ONLY -- 
   scribble.midi(chords, 'chords.mid');
 
 
