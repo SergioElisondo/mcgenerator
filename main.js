@@ -279,7 +279,7 @@ let chords = scribble.clip({
 
 
 
-// // Get C Major (Major is denoted by M)
+// // Get C Major Chord (Major is denoted by M)
 // const cMajorChord = chord('CM'); // [ 'C4', 'E4', 'G4' ]
 // // Get the C Major chord on the 5th octave
 // const cMajorChord5 = scribble.chord('CM-5'); // [ 'C5', 'E5', 'G5' ]
