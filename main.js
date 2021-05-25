@@ -170,7 +170,7 @@ let chords = scribble.clip({
 
   
 
-  // THIS PLAYS BUT NO SOUND!
+  // THIS PLAYS BUT THERE IS NO SOUND!
 // let newArray = [...chords, ...melodyNotes]
 // let all = Object.assign(newArray.join(''))
 // scribble.midi(all, 'random-chords.mid')
