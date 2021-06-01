@@ -66,17 +66,21 @@ let grammar = tracery.createGrammar({
     // 'tritoneDefinitionLow': ['7th-2'],
     'dimishedDefinition': ['o7-2'], // this puts it into a third octave range -- DO NOT put it on chord letters below!!
     
-    
-    'sadNote': ['A', 'E', 'D'],
+    // added G B Eb to sadNotes
+    'sadNote': ['A', 'E', 'D', 'G', 'B', 'Eb'],
     'happyNote': ['C', 'F'],
-    'dominantNote': ['G'],
-    'tritoneNote': ['Db'], // sub for Dominant7th
-    // 'tritoneNoteLow': ['Bb'], // tritone sub for Em7
-    'diminishedNote': ['B'], // regular diminsished
     
-    // ADD THIS INTO chordType if you Em7 tritone sub of Bb7 --- '#tritoneNoteLow##tritoneDefinitionLow#',
+    // removed 'dominantNote tritoneNote diminishedNote' from the list
+    //'dominantNote': ['G'],
+    //'tritoneNote': ['Db'], // sub for Dominant7th
+    //'diminishedNote': ['B'], // regular diminsished
+    // 'tritoneNoteLow': ['Bb'], // tritone sub for Em7
+    
+    
+    // currently not in ORIGINAL set of chords but ADD THIS INTO chordType if you Em7 tritone sub of Bb7 --- '#tritoneNoteLow##tritoneDefinitionLow#', 
 
-    'chordType': ['#sadNote##sadDefinition#', '#happyNote##happyDefinition#', '#dominantNote##dominantDefinition#','#tritoneNote##tritoneDefinition#', '#diminishedNote##dimishedDefinition#'],
+    // THREE ORIGINALS that were removed 060121 add these for chord types if you want dim and tritones in the mix '#dominantNote##dominantDefinition#','#tritoneNote##tritoneDefinition#', '#diminishedNote##dimishedDefinition#'
+    'chordType': ['#sadNote##sadDefinition#', '#happyNote##happyDefinition#'],
     'text': ['#chordType#'],
     // 'origin':['#note##chord#'],
     // 'chords': 
@@ -167,6 +171,11 @@ let chords = scribble.clip({
   let melodyNotes = [].concat(...clips)
   // THIS OUTPUTS MELODY ONLY
   scribble.midi(melodyNotes, 'melody.mid');
+
+
+// this outputs them all together!!!
+scribble.midi([chords, melodyNotes], 'AllPartsTogether.mid')
+
 
   
 
