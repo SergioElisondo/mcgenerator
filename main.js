@@ -232,7 +232,7 @@ scribble.midi([chords, melodyNotes], 'AllPartsTogether.mid')
 
 
 
-// TOP CODE HERE WORKS TOO!!!!!!!!!!!
+// TOP CODE HERE WORKS TOO!!!
 // a diff way to write the "pattern"
 
 // const clip = scribble.clip({
