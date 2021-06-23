@@ -173,7 +173,7 @@ let chords = scribble.clip({
   scribble.midi(melodyNotes, 'melody.mid');
 
 
-// this outputs them all together!!!
+// this outputs them all together? nope...
 scribble.midi([chords, melodyNotes], 'AllPartsTogether.mid')
 
 
