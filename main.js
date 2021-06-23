@@ -4,6 +4,21 @@ const scribble = require('scribbletune');
 // import { Note, Scale } from "@tonaljs/tonal";
 // import { transpose } from "@tonaljs/note";
 // import { chord, clip } from 'scribbletune';
+// Load the full build.
+
+let _ = require('lodash');
+// Load the core build.
+// var _ = require('lodash/core');
+// // Load the FP build for immutable auto-curried iteratee-first data-last methods.
+// var fp = require('lodash/fp');
+
+// // Load method categories.
+// var array = require('lodash/array');
+// var object = require('lodash/fp/object');
+
+// // Cherry-pick methods for smaller browserify/rollup/webpack bundles.
+// var at = require('lodash/at');
+// var curryN = require('lodash/fp/curryN');
 
 
 // ***************************************** VARIATION OF LOGS for CONSOLE **********************
@@ -173,8 +188,10 @@ let chords = scribble.clip({
   scribble.midi(melodyNotes, 'melody.mid');
 
 
-// this outputs them all together? nope...
-scribble.midi([chords, melodyNotes], 'AllPartsTogether.mid')
+// this outputs them all together! but not fully working...
+let combined = _.merge(chords, melodyNotes)
+scribble.midi(combined, 'AllPartsTogether.mid')
+
 
 
   
