@@ -53,7 +53,7 @@ let _ = require('lodash');
 
 
 // ******************************** WORD MIXED TO MIX UP CHORDS AND MELODIES **************
-// THIS IS THE WORD MIXER!! ORIGINAL CODE -- same code below but edited
+// THIS IS THE WORD MIXER!!! ORIGINAL CODE -- same code below but edited
 // let tracery = require('tracery-grammar');
  
 // let grammar = tracery.createGrammar({
