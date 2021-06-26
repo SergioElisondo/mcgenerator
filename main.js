@@ -161,7 +161,7 @@ let chords = scribble.clip({
     notes: chordList,
     // pattern: 'x_x_x___'.repeat(8)
 
-    // -------------------------  THIS WILL MAKE THE RHYTHM RANDOM!!!! -------------------
+    // -------------------------  THIS WILL MAKE THE RHYTHM RANDOM!!! -------------------
     pattern: rhythms.join('')
 })
 
