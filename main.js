@@ -69,7 +69,7 @@ let _ = require('lodash');
 
 //'note': ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 
-// CHORD MAKER --- EDITED CODE TO WORK FOR RANDOMIZATION
+// CHORD MAKER --- EDITED CODE TO WORK FOR RANDOMIZATION!
 let tracery = require('tracery-grammar');
  
 let grammar = tracery.createGrammar({
