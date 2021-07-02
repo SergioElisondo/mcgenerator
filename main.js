@@ -8,17 +8,17 @@ const scribble = require('scribbletune');
 
 let _ = require('lodash');
 // Load the core build.
-// var _ = require('lodash/core');
+// let _ = require('lodash/core');
 // // Load the FP build for immutable auto-curried iteratee-first data-last methods.
-// var fp = require('lodash/fp');
+// let fp = require('lodash/fp');
 
 // // Load method categories.
-// var array = require('lodash/array');
-// var object = require('lodash/fp/object');
+// let array = require('lodash/array');
+// let object = require('lodash/fp/object');
 
 // // Cherry-pick methods for smaller browserify/rollup/webpack bundles.
-// var at = require('lodash/at');
-// var curryN = require('lodash/fp/curryN');
+// let at = require('lodash/at');
+// let curryN = require('lodash/fp/curryN');
 
 
 // ***************************************** VARIATION OF LOGS for CONSOLE **********************
