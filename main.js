@@ -183,7 +183,7 @@ let chords = scribble.clip({
   );
 
   let melodyNotes = [].concat(...clips)
-  // THIS OUTPUTS MELODY ONLY!
+  // THIS OUTPUTS MELODY ONLY!!
   scribble.midi(melodyNotes, 'melody.mid');
 
 
@@ -193,8 +193,6 @@ scribble.midi(combined, 'AllPartsTogether.mid')
 
 // let combined2 = chords.concat(melodyNotes).reduce((a,b) => a+b, 0)
 // scribble.midi(combined2, 'AllPartsTogether2.mid')
-
-
 
   
 
