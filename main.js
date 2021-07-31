@@ -79,7 +79,7 @@ let grammar = tracery.createGrammar({
     'dominantDefinition': ['M-3'],
     'tritoneDefinition': ['7th-3'],
     // 'tritoneDefinitionLow': ['7th-2'],
-    'dimishedDefinition': ['o7-2'], // this puts it into a third octave range -- DO NOT put it on chord letters below!!
+    'dimishedDefinition': ['o7-2'], // this puts it into a third octave range -- DO NOT put it on chord letters below
     
     // added G B Eb to sadNotes
     'sadNote': ['A', 'E', 'D', 'G', 'B', 'Eb'],
