@@ -101,7 +101,7 @@ let grammar = tracery.createGrammar({
     // 'chords': 
 });
 
-// RHYTHM MAKER!!
+// RHYTHM MAKER!
 let rhythmGrammar = tracery.createGrammar({
   'groove': ['x__x__x-','x--x__x-','x--x--x_','x-x__x_-'],
   'text_1':['#groove#'],
@@ -187,9 +187,15 @@ let chords = scribble.clip({
   scribble.midi(melodyNotes, 'melody.mid');
 
 
-// this outputs them all together! but not fully working...
+// this outputs them all together! but not fully working... tried with Leon
 let combined = _.merge(chords, melodyNotes)
-scribble.midi(combined, 'AllPartsTogether.mid')
+scribble.midi(chords, 'AllPartsTogether.mid')
+
+
+
+// // this outputs them all together! but not fully working...
+// let combined = 
+// scribble.midi(combined, 'AllPartsTogether.mid')
 
 // let combined2 = chords.concat(melodyNotes).reduce((a,b) => a+b, 0)
 // scribble.midi(combined2, 'AllPartsTogether2.mid')
