@@ -1,4 +1,4 @@
-const scribble = require('scribbletune');
+const scribble = require("scribbletune");
 // const { Note, Scale } = require("@tonaljs/tonal");
 // const { Z_BINARY } = require('node:zlib');
 // import { Note, Scale } from "@tonaljs/tonal";
@@ -6,7 +6,7 @@ const scribble = require('scribbletune');
 // import { chord, clip } from 'scribbletune';
 // Load the full build.
 
-let _ = require('lodash');
+let _ = require("lodash");
 // Load the core build.
 // let _ = require('lodash/core');
 // // Load the FP build for immutable auto-curried iteratee-first data-last methods.
@@ -19,7 +19,6 @@ let _ = require('lodash');
 // // Cherry-pick methods for smaller browserify/rollup/webpack bundles.
 // let at = require('lodash/at');
 // let curryN = require('lodash/fp/curryN');
-
 
 // ***************************************** VARIATION OF LOGS for CONSOLE **********************
 
@@ -42,15 +41,11 @@ let _ = require('lodash');
 // const allChords = scribble.chords(); // Returns an array of all the available chords
 // console.log(Object.values(allChords)
 
-
-
 // ****************************************** ASCII CODE **********************************
 // think of "x" as quarter note and "-" (aka HYPHEN or Minus) as quarter rest
 // LETTER ASCII-CODE BINARY
 // x	   120	       01111000
 // -      45
-
-
 
 // ******************************** WORD MIXED TO MIX UP CHORDS AND MELODIES **************
 // THIS IS THE WORD MIXER!! ORIGINAL CODE -- same code below but edited!
@@ -62,28 +57,27 @@ let _ = require('lodash');
 //   'origin':['I am #emotion.a# #animal#.'],
 // });
 
-// grammar.addModifiers(tracery.baseEngModifiers); 
+// grammar.addModifiers(tracery.baseEngModifiers);
 
 // console.log(grammar.flatten('#origin#'));
-
 
 //'note': ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 
 // CHORD MAKER --- EDITED CODE TO WORK FOR RANDOMIZATION
-let tracery = require('tracery-grammar');
+let tracery = require("tracery-grammar");
 
 let grammar = tracery.createGrammar({
   //'definition': ["+add#9", "11th", "11b9", "13th", "13#11", "13#9", "13#9#11", "13b5", "13b9", "13b9#11", "13no5", "13sus4", "4th", "5th", 64, "69#11", "7th", "7#11", "7#11b13", "7#5", "7#5#9", "7#5b9", "7#5b9#11", "7#5sus4", "7#9", "7#9#11", "7#9#11b13", "7#9b13", "7add6", "7b13", "7b5", "7b6", "7b9", "7b9#11", "7b9#9", "7b9b13", "7b9b13#11", "7no5", "7sus4", "7sus4b9", "7sus4b9b13", "9th", "9#11", "9#11b13", "9#5", "9#5#11", "9b13", "9b5", "9no5", "9sus4", "M", "M#5", "M#5add9", "M13", "M13#11", "M6", "M6#11", "M69", "M69#11", "M7#11", "M7#5", "M7#5sus4", "M7#9#11", "M7add13", "M7b5", "M7b6", "M7b9", "M7sus4", "M9", "M9#11", "M9#5", "M9#5sus4", "M9b5", "M9sus4", "Madd9", "Maddb9", "Maj7", "Mb5", "Mb6", "Msus2", "Msus4", "m", "m#5", "m11", "m11A 5", "m11b5", "m13", "m6", "m69", "m7", "m7#5", "m7add11", "m7b5", "m9", "m9#5", "m9b5", "mM9", "mM9b6", "mMaj7", "mMaj7b6", "madd4", "madd9", "mb6M7", "mb6b9", "o", "o7", "o7M7", "oM7", "sus24"],
-  'sadDefinition': ['m7-3'],
-  'happyDefinition': ['Maj7-3'],
-  'dominantDefinition': ['M-3'],
-  'tritoneDefinition': ['7th-3'],
+  sadDefinition: ["m7-3"],
+  happyDefinition: ["Maj7-3"],
+  dominantDefinition: ["M-3"],
+  tritoneDefinition: ["7th-3"],
   // 'tritoneDefinitionLow': ['7th-2'],
-  'dimishedDefinition': ['o7-2'], // this puts it into a third octave range -- DO NOT put it on chord letters below
+  dimishedDefinition: ["o7-2"], // this puts it into a third octave range -- DO NOT put it on chord letters below
 
   // added G B Eb to sadNotes
-  'sadNote': ['A', 'E', 'D', 'G', 'B', 'Eb'],
-  'happyNote': ['C', 'F'],
+  sadNote: ["A", "E", "D", "G", "B", "Eb"],
+  happyNote: ["C", "F"],
 
   // removed 'dominantNote tritoneNote diminishedNote' from the list
   //'dominantNote': ['G'],
@@ -91,22 +85,20 @@ let grammar = tracery.createGrammar({
   //'diminishedNote': ['B'], // regular diminsished
   // 'tritoneNoteLow': ['Bb'], // tritone sub for Em7
 
-
-  // currently not in ORIGINAL set of chords but ADD THIS INTO chordType if you Em7 tritone sub of Bb7 --- '#tritoneNoteLow##tritoneDefinitionLow#', 
+  // currently not in ORIGINAL set of chords but ADD THIS INTO chordType if you Em7 tritone sub of Bb7 --- '#tritoneNoteLow##tritoneDefinitionLow#',
 
   // THREE ORIGINALS that were removed 060121 add these for chord types if you want dim and tritones in the mix '#dominantNote##dominantDefinition#','#tritoneNote##tritoneDefinition#', '#diminishedNote##dimishedDefinition#'
-  'chordType': ['#sadNote##sadDefinition#', '#happyNote##happyDefinition#'],
-  'text': ['#chordType#'],
+  chordType: ["#sadNote##sadDefinition#", "#happyNote##happyDefinition#"],
+  text: ["#chordType#"],
   // 'origin':['#note##chord#'],
-  // 'chords': 
+  // 'chords':
 });
 
-// RHYTHM MAKE!
+// RHYTHM MAKE!!
 let rhythmGrammar = tracery.createGrammar({
-  'groove': ['x__x__x-', 'x--x__x-', 'x--x--x_', 'x-x__x_-'],
-  'text_1': ['#groove#'],
+  groove: ["x__x__x-", "x--x__x-", "x--x--x_", "x-x__x_-"],
+  text_1: ["#groove#"],
 });
-
 
 // MELODY MAKER!!
 // let rhythmGrammar = tracery.createGrammar({
@@ -116,27 +108,24 @@ let rhythmGrammar = tracery.createGrammar({
 
 // --------------------- THIS IS FOR RANDOMIZING CHORDS -------------------------
 let getRandomChord = function (grammar) {
-  return (grammar.flatten('#text#'));
-}
+  return grammar.flatten("#text#");
+};
 
 let getChords = function (grammar, chordCount) {
-  let chords = []
+  let chords = [];
   for (let i = 0; i < chordCount; i++) {
-    let chord = getRandomChord(grammar)
-    console.log('pushing' + chord)
-    chords.push(chord)
+    let chord = getRandomChord(grammar);
+    console.log("pushing" + chord);
+    chords.push(chord);
   }
-  return chords
-}
+  return chords;
+};
 
 // --------------------------- RANDOMIZE RHYTHM ------------------------
 
-
-
-
 let getRandomText = function (grammar) {
-  return grammar.flatten('#text_1#');
-}
+  return grammar.flatten("#text_1#");
+};
 
 let getText = function (grammar, textCount) {
   let textItems = [];
@@ -145,15 +134,15 @@ let getText = function (grammar, textCount) {
     textItems.push(text);
   }
   return textItems;
-}
+};
 
 // GRABBIN CHORDS!
-let chordList = getChords(grammar, 8)
-console.log('chordList:', chordList)
+let chordList = getChords(grammar, 8);
+console.log("chordList:", chordList);
 
 // GRABBING RYHTHM
 let rhythms = getText(rhythmGrammar, 8);
-console.log('rhythmList:', rhythms);
+console.log("rhythmList:", rhythms);
 
 // PUTTING CHORDS + RYHTHM TOGETHER
 let chords = scribble.clip({
@@ -161,48 +150,42 @@ let chords = scribble.clip({
   // pattern: 'x_x_x___'.repeat(8)
 
   // -------------------------  THIS WILL MAKE THE RHYTHM RANDOM!!! -------------------
-  pattern: rhythms.join('')
-})
+  pattern: rhythms.join(""),
+});
 
-// THIS OUTPUTS CHORDS ONLY -- 
-scribble.midi(chords, 'chords.mid');
+// THIS OUTPUTS CHORDS ONLY --
+scribble.midi(chords, "chords.mid");
 
-
-// ************************************* MAIN melody ******************* 
-const clips = ['1032', '2032', '4021', '3052'].map(order =>
+// ************************************* MAIN melody *******************
+const clips = ["1032", "2032", "4021", "3052"].map(order =>
   scribble.clip({
-    pattern: '[xx][xR]'.repeat(8),
+    pattern: "[xx][xR]".repeat(8),
     notes: scribble.arp({
       // chords: 'Dm BbM FM CM BbM Am FM Gm', //original sounds awesome!
-      chords: 'CM Am Em DM GM Am FM GM',
+      chords: "CM Am Em DM GM Am FM GM",
       count: 8,
       order,
     }),
-    accent: 'x-xx--xx', // think of "x" as quarter note and "-" as quarter rest
+    accent: "x-xx--xx", // think of "x" as quarter note and "-" as quarter rest
   })
 );
 
-let melodyNotes = [].concat(...clips)
+let melodyNotes = [].concat(...clips);
 // THIS OUTPUTS MELODY ONLY!!
-scribble.midi(melodyNotes, 'melody.mid');
-
+scribble.midi(melodyNotes, "melody.mid");
 
 // this outputs them all together! but not fully working... tried with Leon
-let combined = _.merge(chords, melodyNotes)
-scribble.midi(chords, 'AllPartsTogether.mid')
-
-
+let combined = _.merge(chords, melodyNotes);
+scribble.midi(chords, "AllPartsTogether.mid");
 
 // // this outputs them all together! but not fully working...
-// let combined = 
+// let combined =
 // scribble.midi(combined, 'AllPartsTogether.mid')
 
 // let combined2 = chords.concat(melodyNotes).reduce((a,b) => a+b, 0)
 // scribble.midi(combined2, 'AllPartsTogether2.mid')
 
-
-
-  // THIS PLAYS BUT THERE IS NO SOUND!!!
+// THIS PLAYS BUT THERE IS NO SOUND!!!
 // let newArray = [...chords, ...melodyNotes]
 // let all = Object.assign(newArray.join(''))
 // scribble.midi(all, 'random-chords.mid')
@@ -226,10 +209,8 @@ scribble.midi(chords, 'AllPartsTogether.mid')
 
 //     return a;
 // };
-// var array3 = chords.concat(melodyNotes).unique(); 
+// var array3 = chords.concat(melodyNotes).unique();
 // scribble.midi(array3,'random-chords.mid')
-
-
 
 // ***************************** Arpeggio **********************
 // const c = scribble.clip({
@@ -238,8 +219,6 @@ scribble.midi(chords, 'AllPartsTogether.mid')
 // });
 
 // scribble.midi(c, 'arppegio.mid');
-
-
 
 // *****************************************  SCALES  **********************
 // *** Create a clip that plays the middle C
@@ -251,10 +230,6 @@ scribble.midi(chords, 'AllPartsTogether.mid')
 // *** Render a MIDI file of this clip
 // scribble.midi(clip, 'c-major-scale.mid');
 
-
-
-
-
 // TOP CODE HERE WORKS TOO!!!
 // a diff way to write the "pattern"
 
@@ -265,7 +240,6 @@ scribble.midi(chords, 'AllPartsTogether.mid')
 
 // scribble.midi(clip, 'c-major.mid');
 
-
 // MINOR!!
 // let cMinor = scribble.mode('C4 aeolian'); // [ 'C4', 'D4', 'D#4', 'F4' ...]
 // const clip = scribble.clip({
@@ -274,7 +248,6 @@ scribble.midi(chords, 'AllPartsTogether.mid')
 // });
 
 // scribble.midi(clip, 'c-min.mid'); // Export this clip as a MIDI file
-
 
 // ********************************* CHORDS ***************************
 
@@ -286,19 +259,15 @@ scribble.midi(chords, 'AllPartsTogether.mid')
 // })
 // scribble.midi(chords, 'chords.mid')
 
-
-
 //This works too
 // const chordsClip = scribble.clip({
 // 	// Use chord names directly in the notes array
-// 	// M stands for Major, m stands for minor 
+// 	// M stands for Major, m stands for minor
 //     // CM7-3 is C Major 7 chord on 3rd octave range
 // 	notes: 'CM7-3 FM7-3 GM7-3 CM7-3',
 // 	pattern: 'x-x-x-x-'.repeat(4)  // think of "x" as quarter note and "-" as quarter rest
 // });
 // scribble.midi(chordsClip, 'chords.mid');
-
-
 
 // USING A 7th -- DOMINTANT 7th! ******************* WORKING HERE
 // need to add user input
@@ -307,9 +276,6 @@ scribble.midi(chords, 'AllPartsTogether.mid')
 //     pattern: 'x-'.repeat(4) // gets all 4 chords
 // })
 // scribble.midi(cMajorChord, 'test.mid')
-
-
-
 
 // // Get any Major Chord with "M" (Major is denoted by M)
 // const cMajorChord = chord('CM'); // [ 'C4', 'E4', 'G4' ]
