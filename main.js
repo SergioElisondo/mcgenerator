@@ -136,7 +136,7 @@ let getText = function (grammar, textCount) {
   return textItems;
 };
 
-// GRABBIN CHORDS!!
+// GRABBIN CHORDS!
 let chordList = getChords(grammar, 8);
 console.log("chordList:", chordList);
 
