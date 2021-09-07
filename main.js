@@ -171,7 +171,7 @@ const clips = ["1032", "2032", "4021", "3052"].map(order =>
 );
 
 let melodyNotes = [].concat(...clips);
-// THIS OUTPUTS MELODY ONLY!!
+// THIS OUTPUTS MELODY ONLY!
 scribble.midi(melodyNotes, "melody.mid");
 
 // this outputs them all together! but not fully working... tried with Leon
