@@ -20,19 +20,6 @@ let _ = require("lodash");
 // let at = require('lodash/at');
 // let curryN = require('lodash/fp/curryN');
 
-// ***************************************** VARIATION OF LOGS for CONSOLE **********************
-
-// console.log('Console Log')
-// console.info('Console Info')
-// console.debug('Console Debug')
-// console.warn('Console Warn')
-// console.error('Console Error')
-// console.assert
-// console.count
-// console.countReset
-// console.group
-// console.table
-
 // **************************************** LIST OF SCALES AND CHORDS **************************
 // const allScales = scribble.scales(); // returns an array of all the available scales from tonal
 // console.log(allScales)
