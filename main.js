@@ -146,7 +146,7 @@ scribble.midi(chords, "chords.mid");
 // ************************************* MAIN melody *******************
 const clips = ["1032", "2032", "4021", "3052"].map(order =>
   scribble.clip({
-    pattern: "[xx][xR]".repeat(16),
+    pattern: "[xx][xR]".repeat(8),
     notes: scribble.arp({
       // chords: 'Dm BbM FM CM BbM Am FM Gm', //original sounds awesome!
       chords: "CM Am Em DM GM Am FM GM",
