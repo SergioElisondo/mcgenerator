@@ -1,4 +1,4 @@
-const scribble = require("scribbletune");
+const scribble = require("scribbletune"); //framework or module that creates midi notes
 // const { Note, Scale } = require("@tonaljs/tonal");
 // const { Z_BINARY } = require('node:zlib');
 // import { Note, Scale } from "@tonaljs/tonal";
@@ -34,36 +34,39 @@ let _ = require("lodash");
 // x	   120	       01111000
 // -      45
 
-// ******************************** WORD MIXED TO MIX UP CHORDS AND MELODIES **************
-// THIS IS THE WORD MIXER!! ORIGINAL CODE -- same code below but edited!
+// ******************************** WORD MIXER TO MIX UP CHORDS AND MELODIES **************
+// THIS IS THE WORD MIXER!! EXAMPLE
 // let tracery = require('tracery-grammar');
+let tracery = require("tracery-grammar"); // library that randomizes
 
-// let grammar = tracery.createGrammar({
-//   'animal': ['panda','fox','capybara','iguana'],
-//   'emotion': ['sad','happy','angry','jealous'],
-//   'origin':['I am #emotion.a# #animal#.'],
-// });
+// testing tracery!  --- START
+let grammar_1 = tracery.createGrammar({
+  'animal': ['panda','fox','capybara','iguana'],
+  'emotion': ['sad','happy','angry','jealous'],
+  'origin':['I am #emotion.a# #animal#.'],
+});
 
-// grammar.addModifiers(tracery.baseEngModifiers);
+grammar_1.addModifiers(tracery.baseEngModifiers);
 
-// console.log(grammar.flatten('#origin#'));
+console.log(grammar_1.flatten('#origin#'));
+// testing tracery!  --- END
+
+
 
 //'note': ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 
 // CHORD MAKER --- EDITED CODE TO WORK FOR RANDOMIZATION
-let tracery = require("tracery-grammar");
-
 let grammar = tracery.createGrammar({
-  //'definition': ["+add#9", "11th", "11b9", "13th", "13#11", "13#9", "13#9#11", "13b5", "13b9", "13b9#11", "13no5", "13sus4", "4th", "5th", 64, "69#11", "7th", "7#11", "7#11b13", "7#5", "7#5#9", "7#5b9", "7#5b9#11", "7#5sus4", "7#9", "7#9#11", "7#9#11b13", "7#9b13", "7add6", "7b13", "7b5", "7b6", "7b9", "7b9#11", "7b9#9", "7b9b13", "7b9b13#11", "7no5", "7sus4", "7sus4b9", "7sus4b9b13", "9th", "9#11", "9#11b13", "9#5", "9#5#11", "9b13", "9b5", "9no5", "9sus4", "M", "M#5", "M#5add9", "M13", "M13#11", "M6", "M6#11", "M69", "M69#11", "M7#11", "M7#5", "M7#5sus4", "M7#9#11", "M7add13", "M7b5", "M7b6", "M7b9", "M7sus4", "M9", "M9#11", "M9#5", "M9#5sus4", "M9b5", "M9sus4", "Madd9", "Maddb9", "Maj7", "Mb5", "Mb6", "Msus2", "Msus4", "m", "m#5", "m11", "m11A 5", "m11b5", "m13", "m6", "m69", "m7", "m7#5", "m7add11", "m7b5", "m9", "m9#5", "m9b5", "mM9", "mM9b6", "mMaj7", "mMaj7b6", "madd4", "madd9", "mb6M7", "mb6b9", "o", "o7", "o7M7", "oM7", "sus24"],
-  sadDefinition: ["m7-3"],
-  happyDefinition: ["Maj7-3"],
-  dominantDefinition: ["M-3"],
-  tritoneDefinition: ["7th-3"],
-  // 'tritoneDefinitionLow': ['7th-2'],
-  dimishedDefinition: ["o7-2"], // this puts it into a third octave range -- DO NOT put it on chord letters below
+  //'chord': ["+add#9", "11th", "11b9", "13th", "13#11", "13#9", "13#9#11", "13b5", "13b9", "13b9#11", "13no5", "13sus4", "4th", "5th", 64, "69#11", "7th", "7#11", "7#11b13", "7#5", "7#5#9", "7#5b9", "7#5b9#11", "7#5sus4", "7#9", "7#9#11", "7#9#11b13", "7#9b13", "7add6", "7b13", "7b5", "7b6", "7b9", "7b9#11", "7b9#9", "7b9b13", "7b9b13#11", "7no5", "7sus4", "7sus4b9", "7sus4b9b13", "9th", "9#11", "9#11b13", "9#5", "9#5#11", "9b13", "9b5", "9no5", "9sus4", "M", "M#5", "M#5add9", "M13", "M13#11", "M6", "M6#11", "M69", "M69#11", "M7#11", "M7#5", "M7#5sus4", "M7#9#11", "M7add13", "M7b5", "M7b6", "M7b9", "M7sus4", "M9", "M9#11", "M9#5", "M9#5sus4", "M9b5", "M9sus4", "Madd9", "Maddb9", "Maj7", "Mb5", "Mb6", "Msus2", "Msus4", "m", "m#5", "m11", "m11A 5", "m11b5", "m13", "m6", "m69", "m7", "m7#5", "m7add11", "m7b5", "m9", "m9#5", "m9b5", "mM9", "mM9b6", "mMaj7", "mMaj7b6", "madd4", "madd9", "mb6M7", "mb6b9", "o", "o7", "o7M7", "oM7", "sus24"],
+  sadChord: ["m7-3"],
+  happyChord: ["Maj7-3"],
+  dominantChord: ["M-3"],
+  tritoneChord: ["7th-3"],
+  // 'tritoneChordLow': ['7th-2'],
+  dimishedChord: ["o7-2"], // this puts it into a third octave range -- DO NOT put it on chord letters below
 
   // added G B Eb to sadNotes
-  sadNote: ["A", "E", "D", "G", "B", "Eb"],
+  sadNote: ["A", "E", "D", "G"], //  B and Eb was taken out
   happyNote: ["C", "F"],
 
   // removed 'dominantNote tritoneNote diminishedNote' from the list
@@ -72,16 +75,16 @@ let grammar = tracery.createGrammar({
   //'diminishedNote': ['B'], // regular diminsished
   // 'tritoneNoteLow': ['Bb'], // tritone sub for Em7
 
-  // currently not in ORIGINAL set of chords but ADD THIS INTO chordType if you Em7 tritone sub of Bb7 --- '#tritoneNoteLow##tritoneDefinitionLow#',
+  // currently not in ORIGINAL set of chords but ADD THIS INTO chordType if you Em7 tritone sub of Bb7 --- '#tritoneNoteLow##tritoneChordLow#',
 
-  // THREE ORIGINALS that were removed 060121 add these for chord types if you want dim and tritones in the mix '#dominantNote##dominantDefinition#','#tritoneNote##tritoneDefinition#', '#diminishedNote##dimishedDefinition#'
-  chordType: ["#sadNote##sadDefinition#", "#happyNote##happyDefinition#"],
+  // THREE ORIGINALS that were removed 060121 add these for chord types if you want dim and tritones in the mix '#dominantNote##dominantChord#','#tritoneNote##tritoneChord#', '#diminishedNote##dimishedChord#'
+  chordType: ["#sadNote##sadChord#", "#happyNote##happyChord#"],
   text: ["#chordType#"],
   // 'origin':['#note##chord#'],
   // 'chords':
 });
 
-// RHYTHM MAKE!!
+// RHYTHM MAKER!
 let rhythmGrammar = tracery.createGrammar({
   groove: ["x__x__x-", "x--x__x-", "x--x--x_", "x-x__x_-"],
   text_1: ["#groove#"],
@@ -94,14 +97,14 @@ let rhythmGrammar = tracery.createGrammar({
 // });
 
 // --------------------- THIS IS FOR RANDOMIZING CHORDS -------------------------
-let getRandomChord = function (grammar) {
-  return grammar.flatten("#text#");
+let getRandomChord = function (grammar0) {
+  return grammar0.flatten("#text#");
 };
 
-let getChords = function (grammar, chordCount) {
+let getChords = function (grammar1, chordCount) {
   let chords = [];
   for (let i = 0; i < chordCount; i++) {
-    let chord = getRandomChord(grammar);
+    let chord = getRandomChord(grammar1);
     console.log("pushing" + chord);
     chords.push(chord);
   }
@@ -110,21 +113,21 @@ let getChords = function (grammar, chordCount) {
 
 // --------------------------- RANDOMIZE RHYTHM ------------------------
 
-let getRandomText = function (grammar) {
-  return grammar.flatten("#text_1#");
+let getRandomText = function (grammar0) {
+  return grammar0.flatten("#text_1#");
 };
 
-let getText = function (grammar, textCount) {
+let getText = function (grammar2, textCount) {  // anonymous function just for this 
   let textItems = [];
   for (let i = 0; i < textCount; i++) {
-    let text = getRandomText(grammar);
+    let text = getRandomText(grammar2); // getRandomText method we created here
     textItems.push(text);
   }
   return textItems;
 };
 
 // GRABBIN CHORDS!
-let chordList = getChords(grammar, 8);
+let chordList = getChords(grammar, 8); // passing in actual grammar argument from above 
 console.log("chordList:", chordList);
 
 // GRABBING RYHTHM
@@ -143,13 +146,13 @@ let chords = scribble.clip({
 // THIS OUTPUTS CHORDS ONLY --
 scribble.midi(chords, "chords.mid");
 
-// ************************************* MAIN melody *******************
+// ************************************* MAIN melody from DOCS *******************
 const clips = ["1032", "2032", "4021", "3052"].map(order =>
   scribble.clip({
     pattern: "[xx][xR]".repeat(8),
     notes: scribble.arp({
       // chords: 'Dm BbM FM CM BbM Am FM Gm', //original sounds awesome!
-      chords: "CM Am Em DM GM Am FM GM",
+      chords: "CM Am Em Dm GM Am CM GM", // last CM was formally a FM
       count: 8,
       order,
     }),
@@ -157,7 +160,7 @@ const clips = ["1032", "2032", "4021", "3052"].map(order =>
   })
 );
 
-let melodyNotes = [].concat(...clips);
+let melodyNotes = [].concat(...clips); // ... spread operator allowing iterable like an array expression or string to be expanded whereever placed
 // THIS OUTPUTS MELODY ONLY!
 scribble.midi(melodyNotes, "melody.mid");
 
