@@ -66,8 +66,8 @@ let grammar = tracery.createGrammar({
   dimishedChord: ["o7-2"], // this puts it into a third octave range -- DO NOT put it on chord letters below
 
   // added G B Eb to sadNotes
-  sadNote: ["A", "E", "D", "G"], //  B and Eb was taken out
-  happyNote: ["C", "F"],
+  sadNote: ["A", "E", "D"], // G was moved down -- B and Eb was taken out
+  happyNote: ["C", "F", "G"],
 
   // removed 'dominantNote tritoneNote diminishedNote' from the list
   //'dominantNote': ['G'],
