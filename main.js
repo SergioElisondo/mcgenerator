@@ -40,15 +40,15 @@ let _ = require("lodash");
 let tracery = require("tracery-grammar"); // library that randomizes
 
 // testing tracery!  --- START
-let grammar_1 = tracery.createGrammar({
-  'animal': ['panda','fox','capybara','iguana'],
-  'emotion': ['sad','happy','angry','jealous'],
-  'origin':['I am #emotion.a# #animal#.'],
-});
+// let grammar_1 = tracery.createGrammar({
+//   'animal': ['panda','fox','capybara','iguana'],
+//   'emotion': ['sad','happy','angry','jealous'],
+//   'origin':['I am #emotion.a# #animal#.'],
+// });
 
-grammar_1.addModifiers(tracery.baseEngModifiers);
+// grammar_1.addModifiers(tracery.baseEngModifiers);
 
-console.log(grammar_1.flatten('#origin#'));
+// console.log(grammar_1.flatten('#origin#'));
 // testing tracery!  --- END
 
 
