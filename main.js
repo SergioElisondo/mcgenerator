@@ -96,6 +96,42 @@ let rhythmGrammar = tracery.createGrammar({
 //   'text_1':['#groove#'],
 // });
 
+
+
+
+
+
+
+
+// // Create a clip that plays this C major scale
+// const clip = scribble.clip({
+//   notes: cMajor,
+//   pattern: 'xxxxxxx',
+// });
+
+// // mix it up
+// let melodyMix = tracery.createGrammar({
+//   notes1: ['C4', 'D4', 'E4', 'F4']
+//   notesInline: ['#notes1#']
+// })
+
+// // MELODY MAKER!
+// let rhythmGrammar = tracery.createGrammar({
+//   'groove': ['x__x__x-','x--x__x-','x--x--x_','x-x__x_-'],
+//   'text_1':['#groove#'],
+// });
+
+// // Export this clip as a MIDI file
+// scribble.midi(clip, 'c-major.mid');
+
+
+
+
+
+
+
+
+
 // --------------------- THIS IS FOR RANDOMIZING CHORDS -------------------------
 let getRandomChord = function (grammar0) {
   return grammar0.flatten("#text#");
