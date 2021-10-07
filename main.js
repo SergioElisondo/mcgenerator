@@ -113,7 +113,7 @@ let melodyMix = tracery.createGrammar({
 
 // RHYTHM MAKER!
 let rhythmGrammar1 = tracery.createGrammar({
-  'groove': ['x-xx__-x','-xx_-xx-','-xxx-x_x','-xx_xx_x'],
+  'groove': ['x-xx__-x','-xx_xxx-','-xxx-x_x','-xx_xx_x'],
   'text_1': ['#groove#'],
 });
 
@@ -238,18 +238,18 @@ scribble.midi(chords, "chords.mid");
 
 // Basic Melody Gen from DOCS
 // ************************************* MAIN melody from DOCS *******************
-// const clips = ["1032", "2032", "4021", "3052"].map(order =>
-//   scribble.clip({
-//     pattern: "[xx][xR]".repeat(8),
-//     notes: scribble.arp({
-//       // chords: 'Dm BbM FM CM BbM Am FM Gm', //original sounds awesome!
-//       chords: "CM Am Em Dm GM Am CM GM", // last CM was formally a FM
-//       count: 8,
-//       order,
-//     }),
-//     accent: "x-xx--xx", // think of "x" as quarter note and "-" as quarter rest
-//   })
-// );
+const clips = ["1032", "2032", "4021", "3052"].map(order =>
+  scribble.clip({
+    pattern: "[xx][xR]".repeat(8),
+    notes: scribble.arp({
+      // chords: 'Dm BbM FM CM BbM Am FM Gm', //original sounds awesome!
+      chords: "CM Am Em Dm GM Am CM GM", // last CM was formally a FM
+      count: 8,
+      order,
+    }),
+    accent: "x-xx--xx", // think of "x" as quarter note and "-" as quarter rest
+  })
+);
 
 
 
@@ -258,9 +258,9 @@ scribble.midi(chords, "chords.mid");
 
 // ******************************************** MERGING ***************************************************************
 
-// let melodyNotes = [].concat(...clips); // ... spread operator allowing iterable like an array expression or string to be expanded whereever placed
+let melodyNotes = [].concat(...clips); // ... spread operator allowing iterable like an array expression or string to be expanded whereever placed
 // // THIS OUTPUTS MELODY ONLY!
-// scribble.midi(melodyNotes, "melody.mid");
+scribble.midi(melodyNotes, "melody.mid");
 
 
 
