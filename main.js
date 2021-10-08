@@ -113,7 +113,7 @@ let melodyMix = tracery.createGrammar({
 
 // RHYTHM MAKER!
 let rhythmGrammar1 = tracery.createGrammar({
-  'groove': ['x-xx__-x','-xx_xxx-','-xxx-x_x','-xx_xx_x'],
+  'groove': ['x-xx__-x','-xx__xx-','-xxx-x_x','-xx_xx_x'],
   'text_1': ['#groove#'],
 });
 
@@ -240,7 +240,7 @@ scribble.midi(chords, "chords.mid");
 // ************************************* MAIN melody from DOCS *******************
 const clips = ["1032", "2032", "4021", "3052"].map(order =>
   scribble.clip({
-    pattern: "[xx][xR]".repeat(8),
+    pattern: "[x_][xR]".repeat(8),
     notes: scribble.arp({
       // chords: 'Dm BbM FM CM BbM Am FM Gm', //original sounds awesome!
       chords: "CM Am Em Dm GM Am CM GM", // last CM was formally a FM
