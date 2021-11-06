@@ -87,7 +87,7 @@ let grammar = tracery.createGrammar({
 
 // RHYTHM MAKER!
 let rhythmGrammar = tracery.createGrammar({
-  groove: ["x__x__x-", "x-xxx_x-", "x--x--x_", "x-x__x_-"],
+  groove: ["x__x__x-", "x-xxxxx-", "x--x--x_", "x-x__x_-"],
   text_1: ["#groove#"],
 });
 
@@ -243,7 +243,7 @@ const clips = ["1032", "2032", "4021", "3052"].map(order =>
     pattern: "[x_][xR]".repeat(8),
     notes: scribble.arp({
       // chords: 'Dm BbM FM CM BbM Am FM Gm', //original sounds awesome!
-      chords: "CM Am Em Dm GM Am CM GM", // last CM was formally a FM
+      chords: "CM Am Em CM GM Am CM GM", // last CM was formally a FM  --- removed Dm from 4th note position 110221
       count: 8,
       order,
     }),
