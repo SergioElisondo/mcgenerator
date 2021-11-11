@@ -247,7 +247,7 @@ const clips = ["1032", "2032", "4021", "3052"].map(order =>
       count: 8,
       order,
     }),
-    accent: "x-xx--xx", // think of "x" as quarter note and "-" as quarter rest
+    accent: "x-xx---x", // -- changed beat 7 from x to -  (think of "x" as quarter note and "-" as quarter rest)
   })
 );
 
