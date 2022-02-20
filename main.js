@@ -87,7 +87,7 @@ let grammar = tracery.createGrammar({
 
 // RHYTHM MAKER!
 let rhythmGrammar = tracery.createGrammar({
-  groove: ["x__x__x-", "xxxx_xxx", "x--x--x_", "x-x__x_-"],
+  groove: ["x__x__x-", "xxx__xxx", "x--x--x_", "x-x__x_-"],
   text_1: ["#groove#"],
 });
 
