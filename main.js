@@ -98,11 +98,6 @@ let rhythmGrammar = tracery.createGrammar({
 // });
 
 
-
-
-
-
-
 // ****************************************************** NEW MELODY GEN!!!! ************************************
 
 // mix it up
