@@ -98,25 +98,25 @@ let rhythmGrammar = tracery.createGrammar({
 // });
 
 
-// ****************************************************** NEW MELODY GEN!!!! ************************************
+// ****************************************************** New MELODY GEN!!!! ************************************
 
 // mix it up
 let melodyMix = tracery.createGrammar({
   notes1: ['C4', 'D4', 'E4', 'G4', 'A4', 'B4'],
   notesInline: ['#notes1#'],
-}) 
+})
 
 // RHYTHM MAKER!
 let rhythmGrammar1 = tracery.createGrammar({
-  'groove': ['xxxxx--','x____-x_','-x_x_x-x','x-x_x-x-'],
+  'groove': ['x___x--', 'x____-x_', '-x_x_x-x', 'x-x_x-x-'],
   'text_1': ['#groove#'],
 });
 
-let getRandomNote = function (grammar0) {
+let getRandomNote = function(grammar0) {
   return grammar0.flatten("#notesInline#");
 };
 
-let getNote = function (grammar1, chordCount) {
+let getNote = function(grammar1, chordCount) {
   let chords = [];
   for (let i = 0; i < chordCount; i++) {
     let chord = getRandomNote(grammar1);
@@ -128,11 +128,11 @@ let getNote = function (grammar1, chordCount) {
 
 // seccondary loop for rhythm
 
-let getRandomText1 = function (grammar0) {  // this merges the rhythm aka 'flattens'
+let getRandomText1 = function(grammar0) {  // this merges the rhythm aka 'flattens'
   return grammar0.flatten("#text_1#");
 };
 
-let getText1 = function (grammar2, textCount) {  // anonymous function just for this 
+let getText1 = function(grammar2, textCount) {  // anonymous function just for this
   let textItems = [];
   for (let i = 0; i < textCount; i++) {
     let text = getRandomText1(grammar2); // getRandomText method we created here
@@ -143,7 +143,7 @@ let getText1 = function (grammar2, textCount) {  // anonymous function just for 
 
 
 // GRABBIN Notes!
-let chordList1 = getNote(melodyMix, 8); // passing in actual grammar argument from above 
+let chordList1 = getNote(melodyMix, 8); // passing in actual grammar argument from above
 console.log("chordList1:", chordList1);
 
 // GRABBING RYHTHM
@@ -174,11 +174,11 @@ scribble.midi(finalNotes, "melody_gen2.mid");
 
 
 // --------------------- THIS IS FOR RANDOMIZING CHORDS -------------------------
-let getRandomChord = function (grammar0) {
+let getRandomChord = function(grammar0) {
   return grammar0.flatten("#text#");
 };
 
-let getChords = function (grammar1, chordCount) {
+let getChords = function(grammar1, chordCount) {
   let chords = [];
   for (let i = 0; i < chordCount; i++) {
     let chord = getRandomChord(grammar1);
@@ -190,11 +190,11 @@ let getChords = function (grammar1, chordCount) {
 
 // --------------------------- RANDOMIZE RHYTHM ------------------------
 
-let getRandomText = function (grammar0) {
+let getRandomText = function(grammar0) {
   return grammar0.flatten("#text_1#");
 };
 
-let getText = function (grammar2, textCount) {  // anonymous function just for this 
+let getText = function(grammar2, textCount) {  // anonymous function just for this
   let textItems = [];
   for (let i = 0; i < textCount; i++) {
     let text = getRandomText(grammar2); // getRandomText method we created here
@@ -204,7 +204,7 @@ let getText = function (grammar2, textCount) {  // anonymous function just for t
 };
 
 // GRABBIN CHORDS!
-let chordList = getChords(grammar, 8); // passing in actual grammar argument from above 
+let chordList = getChords(grammar, 8); // passing in actual grammar argument from above
 console.log("chordList:", chordList);
 
 // GRABBING RYHTHM
